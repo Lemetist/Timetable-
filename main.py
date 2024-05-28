@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-TOKEN = os.
+TOKEN = os.getenv('TOKEN')
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands= ['start'],func=lambda message: True)
@@ -15,7 +15,7 @@ def send_welcome(message):
     itembtn1 = types.KeyboardButton('Расписание звонков')
     markup.add(itembtn1)
     weather_data = check_weather()
-
+#расписание
     if weather_data:
         message = (
             "Расписание звонков для Авангардная улица, 5\n\n"
